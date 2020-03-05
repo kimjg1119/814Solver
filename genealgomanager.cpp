@@ -16,10 +16,10 @@ void GeneAlgoManager::CalculateScore() {
 
 double GeneAlgoManager::CalculateFitness() {
 	double fitSum = 0;
-	int maxScore = *max_element(geneScore.begin(), geneScore.end());
-	int minScore = *min_element(geneScore.begin(), geneScore.end());
+	double maxScore = *max_element(geneScore.begin(), geneScore.end());
+	double minScore = *min_element(geneScore.begin(), geneScore.end());
 	for (int i = 0; i < n; i++) {
-		geneFitness[i] = (double)(geneScore[i] - minScore) + (double)(maxScore - minScore) / (fitness_k - 1);
+		geneFitness[i] = (geneScore[i] - minScore) + (maxScore - minScore) / (fitness_k - 1);
 		fitSum += geneFitness[i];
 	}
 	return fitSum;
@@ -67,20 +67,19 @@ void GeneAlgoManager::Cross() { //need optimization
 	int parA = SelectParent(fitSum);
 	int parB = SelectParent(fitSum);
 
-	for (int i = 0; i < elite; i++)
-		newGene[i] = bestGene;
-
-	for (int i = elite; i < remain; i++) {
-		if (i % 2) newGene[i] = geneArr[parA];
-		else newGene[i] = geneArr[parB];
-
-		if (i % 5 == 0) {
-			parA = SelectParent(fitSum);
-			parB = SelectParent(fitSum);
-		}
+	typedef pair<int, int> pii;
+	priority_queue<pii, vector<pii>, greater<pii>> pq;
+	for (int i = 0; i < n; i++) {
+		pq.emplace(geneScore[i], i);
+		while (pq.size() > elite) pq.pop();
+	}
+	for (int i = 0; i < elite; i++) {
+		int idx = pq.top().second;
+		pq.pop();
+		newGene[i] = geneArr[idx];
 	}
 
-	for (int i = remain; i < n; i++) {
+	for (int i = elite; i < n; i++) {
 		if (parA == parB) {
 			newGene[i] = geneArr[parA];
 			continue;
@@ -102,7 +101,7 @@ void GeneAlgoManager::Mutate() {
 
 void GeneAlgoManager::Optimize() {
 	for (int i = 0; i < n; i++)
-		gm.Optimizer(geneArr[i]);
+		gm.Optimizer(geneArr[i], maxIter);
 }
 
 void GeneAlgoManager::SaveBestGene() {

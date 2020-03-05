@@ -38,7 +38,7 @@ vector<int> GeneManager::BasicEvaluate(Gene &hGene) {
 
 int GeneManager::EvaluateMax(Gene &hGene) {
 	vector<int> chk = BasicEvaluate(hGene);
-	for (int i = 1; i < chk.size(); i++) {
+	for (int i = 1; i < (int)chk.size(); i++) {
 		if (!chk[i]) return i - 1;
 	}
 	return 20000;
@@ -53,9 +53,9 @@ void GeneManager::ProbMutate(Gene &hGene, double prob, RandomManager &rm) {
 	}
 }
 
-void GeneManager::Optimizer(Gene &g) {
+void GeneManager::Optimizer(Gene& g, int max_iter) {
 	int flag = 1;
-	for(int iter=0; iter<3&&flag; iter++) {
+	for (int iter = 0; iter < max_iter && flag; iter++) {
 		flag = 0;
 		int now = EvaluateMax(g);
 		int tmp = now + 1;

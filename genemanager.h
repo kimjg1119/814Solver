@@ -19,7 +19,7 @@ private:
 public:
 	int EvaluateMax(Gene&);
 	void ProbMutate(Gene&, double, RandomManager&);
-	void Optimizer(Gene&);
+	void Optimizer(Gene&, int);
 };
 
 #endif __genemanager_h__
