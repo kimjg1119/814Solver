@@ -53,11 +53,14 @@ void GeneManager::ProbMutate(Gene &hGene, double prob, RandomManager &rm) {
 	}
 }
 
+#include <iostream>
+
 void GeneManager::Optimizer(Gene& g, int max_iter) {
 	int flag = 1;
 	for (int iter = 0; iter < max_iter && flag; iter++) {
 		flag = 0;
 		int now = EvaluateMax(g);
+		cout << now << endl;
 		int tmp = now + 1;
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 14; j++) {

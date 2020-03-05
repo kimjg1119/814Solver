@@ -107,7 +107,7 @@ void GeneAlgoManager::Mutate() {
 
 void GeneAlgoManager::Optimize() {
 	for (int i = 0; i < n; i++)
-		gm.Optimizer(geneArr[i], max_iter);
+		gm.Optimizer(geneArr[i], max_iter), cout<<"$"<<i<<endl;
 }
 
 void GeneAlgoManager::SaveBestGene() {
