@@ -112,6 +112,71 @@
 * gm : GeneManager 클래스 객체입니다.
 * rm : RandomManger 클래스 객체입니다.
 
+### Functions
+
+#### CalculateScore
+
+* GeneManager 클래스의 EvaluateMax를 평가함수로 사용하여 geneScore 벡터에 점수를 채웁니다.
+
+#### CalculateFitness
+
+* CalculateScore 함수를 통해 계산된 geneScore 벡터를 활용해 각 유전자의 Fitness, 즉 적합도를 계산해 geneFitness 벡터에 적합도를 채웁니다.
+
+#### SelectParent
+
+* CalculateFitness를 함수를 통해 계산된 geneFitness 벡터를 활용해 룰렛 휠 방식으로 유전자들 중 부모가 될 유전자를 하나 고릅니다.
+
+#### IndividualCross
+
+* 유전자 3개를 받아, 1번째와 2번째 유전자를 부모로 하여 교차된 결과를 3번째 유전자에 넣습니다.
+* 교차 방식은 1번째 유전자에서 임의의 직사각형을 랜덤하게 잡아 그 안을 2번째 유전자로 교체하는 방식입니다.
+
+#### Cross
+
+* elite 변수의 값 만큼 이제까지 나온 것 중 가장 좋은 유전자를 추가합니다.
+* 그 후 remain 변수의 값 만큼 기존의 유전자를 추가합니다. 기존의 유전자는 하나가 약 2.5개 삽입됩니다.
+* 그 후 남은 유전자는 IndividualCross를 통한 교차를 통해 추가됩니다.
+
+#### Mutate
+
+* 모든 유전자에 대해 geneManager 클래스의 돌연변이를 적용합니다.
+
+#### SaveBestGene
+
+* 현재 가장 점수가 높은 유전자와 기존 유전자를 비교해서 더 나은 값을 저장합니다.
+
+#### GeneAlgoManager
+
+* 모든 유전자를 랜덤한 값으로 초기화시킵니다.
+
+#### NextGeneration
+
+* 한 세대를 흘립니다.
+* 순서는 점수 계산, 최고 유전자 저장, 교차, 돌연변이, 최적화 순서입니다.
+
+#### PrintBestGene
+
+* 현재 최고점을 얻은 유전자를 출력합니다.
+
+#### BestGeneScore
+
+* 현재 사용하지 않는 함수입니다.
+
+#### SaveAllGene
+
+* 현재 풀에 있는 모든 유전자를 저장합니다.
+* 파일 포맷은 유전자 개수 출력 후 개행, 그 뒤 모든 유전자를 나열합니다.
+* output.txt입니다.
+
+#### LoadAllGene
+
+* output.txt에서 SaveAllGene과 같은 포맷으로 출력된 유전자를 읽어 와 현재 풀로 대체합니다
+* 예외 처리가 되어 있지 않으니 크기를 반드시 일치시키시길 바랍니다.
+
+
+
+
+
 
 
 
