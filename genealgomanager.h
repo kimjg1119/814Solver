@@ -32,8 +32,6 @@ private:
 	void SaveBestGene();
 
 public:
-	int nowMaxScore;
-
 	GeneAlgoManager(int, int);
 	void NextGeneration();
 	void PrintBestGene();

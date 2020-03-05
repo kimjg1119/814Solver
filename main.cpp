@@ -12,7 +12,6 @@ int main() {
 		GA.NextGeneration();
 		if (i % 10 != 0) continue;
 		cout << "Epoch: " << i << ", Score: " << GA.BestGeneScore() << endl;
-		cout << "Now Score: " << GA.nowMaxScore << endl;
 		GA.PrintBestGene();
 		if (i % 1000 != 0) continue;
 		GA.SaveAllGene();

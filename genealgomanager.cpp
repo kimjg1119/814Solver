@@ -9,10 +9,8 @@ GeneAlgoManager::GeneAlgoManager(int _n, int seed)
 }
 
 void GeneAlgoManager::CalculateScore() {
-	nowMaxScore = 0;
 	for (int i = 0; i < n; i++) {
 		geneScore[i] = gm.EvaluateMax(geneArr[i]);
-		nowMaxScore = max(nowMaxScore, geneScore[i]);
 	}
 }
 
