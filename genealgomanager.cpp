@@ -95,13 +95,19 @@ void GeneAlgoManager::Cross() { //need optimization
 }
 
 void GeneAlgoManager::Mutate() {
-	for (int i = 0; i < n; i++)
-		gm.ProbMutate(geneArr[i], mutate_prob, rm);
+	for (int i = 0; i < n; i++) {
+		if (rm.RandomDouble01() < all_init) {
+			Gene newGene(rm);
+			geneArr[i] = newGene;
+		}
+		if (rm.RandomDouble01() < gene_mutate_prob)
+			gm.ProbMutate(geneArr[i], mutate_prob, rm);
+	}
 }
 
 void GeneAlgoManager::Optimize() {
 	for (int i = 0; i < n; i++)
-		gm.Optimizer(geneArr[i], maxIter);
+		gm.Optimizer(geneArr[i], max_iter);
 }
 
 void GeneAlgoManager::SaveBestGene() {

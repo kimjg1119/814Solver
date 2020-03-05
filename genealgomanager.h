@@ -11,8 +11,10 @@ class GeneAlgoManager {
 private:
 	const double fitness_k = 3;
 	const double mutate_prob = 0.01;
+	const double gene_mutate_prob = 0.2;
+	const double all_init = 0.07;
 	const int elite = 10;
-	const int maxIter = 5;
+	const int max_iter = 10000;
 
 	int n;
 	double fitSum;
