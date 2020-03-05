@@ -7,7 +7,7 @@ int main() {
 	int seed = (unsigned int)time(NULL);
 	GeneAlgoManager GA(300, seed);
 
-	GA.LoadAllGene();
+	//GA.LoadAllGene();
 	for (int i = 0; i < 10000; i++) {
 		GA.NextGeneration();
 		if (i % 10 != 0) continue;

@@ -1,6 +1,7 @@
 #ifndef __gene_h__
 #define __gene_h__
 #include "randommanager.h"
+#include <string.h>
 
 class Gene {
 private:
@@ -8,6 +9,7 @@ private:
 public :
 	Gene();
 	Gene(RandomManager&);
+	Gene(string&);
 	void GetGene(int[8][14]);
 	void initGene(int[8][14]);
 	void ModifyGene(int, int, int);
