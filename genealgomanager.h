@@ -29,6 +29,7 @@ private:
 	void IndividualCross(Gene&,Gene&,Gene&);
 	void Cross();
 	void Mutate();
+	void Optimize();
 	void SaveBestGene();
 
 public:

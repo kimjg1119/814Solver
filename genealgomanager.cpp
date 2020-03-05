@@ -100,6 +100,11 @@ void GeneAlgoManager::Mutate() {
 		gm.ProbMutate(geneArr[i], mutate_prob, rm);
 }
 
+void GeneAlgoManager::Optimize() {
+	for (int i = 0; i < n; i++)
+		gm.Optimizer(geneArr[i]);
+}
+
 void GeneAlgoManager::SaveBestGene() {
 	int ma = -1, mai = -1;
 	for (int i = 0; i < n; i++) {
@@ -119,6 +124,7 @@ void GeneAlgoManager::NextGeneration()
 	fitSum = CalculateFitness();
 	Cross();
 	Mutate();
+	Optimize();
 }
 
 void GeneAlgoManager::PrintBestGene() {
