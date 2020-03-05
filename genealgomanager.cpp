@@ -1,6 +1,6 @@
 #include "genealgomanager.h"
 
-GeneAlgoManager::GeneAlgoManager(int _n, int seed) 
+GeneAlgoManager::GeneAlgoManager(int _n, int seed)
 	: n(_n), geneScore(_n), geneFitness(_n), fitSum(0), rm(seed) {
 	for (int i = 0; i < _n; i++) {
 		Gene tempGene(rm);
@@ -40,7 +40,7 @@ int GeneAlgoManager::SelectParent(double fitSum) {
 	else return sel;
 }
 
-void GeneAlgoManager::IndividualCross(Gene& parGeneA, Gene& parGeneB, Gene& childGene){
+void GeneAlgoManager::IndividualCross(Gene& parGeneA, Gene& parGeneB, Gene& childGene) {
 	int parA[8][14], parB[8][14], child[8][14];
 	parGeneA.GetGene(parA);
 	parGeneB.GetGene(parB);
@@ -104,6 +104,11 @@ void GeneAlgoManager::Optimize() {
 		gm.Optimizer(geneArr[i], maxIter);
 }
 
+void GeneAlgoManager::Restart() {
+	for (int i = 0; i < n; i++)
+		gm.Shuffle(geneArr[i]);
+}
+
 void GeneAlgoManager::SaveBestGene() {
 	int ma = -1, mai = -1;
 	for (int i = 0; i < n; i++) {
@@ -112,7 +117,7 @@ void GeneAlgoManager::SaveBestGene() {
 			mai = i;
 		}
 	}
-	if(ma < gm.EvaluateMax(bestGene)) return;
+	if (ma < gm.EvaluateMax(bestGene)) return;
 	bestGene = geneArr[mai];
 }
 
@@ -136,7 +141,7 @@ void GeneAlgoManager::PrintBestGene() {
 	}
 }
 
-void GeneAlgoManager::SaveAllGene(){
+void GeneAlgoManager::SaveAllGene() {
 	ofstream out("output.txt");
 
 	out << n << endl;
@@ -167,6 +172,6 @@ void GeneAlgoManager::LoadAllGene() {
 
 
 
-int GeneAlgoManager::BestGeneScore(){
+int GeneAlgoManager::BestGeneScore() {
 	return gm.EvaluateMax(bestGene);
 }

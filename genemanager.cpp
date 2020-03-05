@@ -5,7 +5,7 @@ using namespace std;
 typedef tuple<int, int, int, int> tp;
 
 vector<int> GeneManager::BasicEvaluate(Gene &hGene) {
-	int hArr[8][14]; 
+	int hArr[8][14];
 	hGene.GetGene(hArr);
 	vector<int> chk(10000);
 
@@ -73,5 +73,17 @@ void GeneManager::Optimizer(Gene& g, int max_iter) {
 			}
 			if (flag) break;
 		}
+	}
+}
+
+void GeneManager::Shuffle(Gene &g) {
+	for (int k = 0; k < 500; k++) {
+		Pos a = rm.RandomPosition();
+		Pos b = rm.RandomPosition();
+
+		int bb = g.GetGene(a.x, a.y);
+		int aa = g.GetGene(b.x, b.y);
+		g.ModifyGene(a.x, a.y, aa);
+		g.ModifyGene(b.x, b.y, bb);
 	}
 }

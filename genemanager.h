@@ -15,11 +15,13 @@ private:
 	int dx[8] = { 1,0,-1,0,1,1,-1,-1 };
 	int dy[8] = { 0,1,0,-1,1,-1,1,-1 };
 	vector<int> BasicEvaluate(Gene&);
+	RandomManager rm;
 
 public:
 	int EvaluateMax(Gene&);
 	void ProbMutate(Gene&, double, RandomManager&);
 	void Optimizer(Gene&, int);
+	void Shuffle(Gene&);
 };
 
 #endif __genemanager_h__

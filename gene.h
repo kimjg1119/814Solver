@@ -5,7 +5,7 @@
 class Gene {
 private:
 	int gene[8][14] = {};
-public :
+public:
 	Gene();
 	Gene(RandomManager&);
 	void GetGene(int[8][14]);
@@ -15,4 +15,3 @@ public :
 };
 
 #endif __gene_h__
-
