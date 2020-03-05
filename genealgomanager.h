@@ -28,7 +28,7 @@ private:
 	void CalculateScore();
 	double CalculateFitness();
 	int SelectParent(double);
-	void IndividualCross(Gene&,Gene&,Gene&);
+	void IndividualCross(Gene&, Gene&, Gene&);
 	void Cross();
 	void Mutate();
 	void Optimize();
