@@ -21,7 +21,7 @@ void Gene::GetGene(int hGene[8][14]) {
 			hGene[i][j] = gene[i][j];
 }
 
-void Gene::initGene(int hGene[8][14]) {
+void Gene::InitGene(int hGene[8][14]) {
 	for (int i = 0; i < 8; i++)
 		for (int j = 0; j < 14; j++)
 			gene[i][j] = hGene[i][j];

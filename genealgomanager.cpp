@@ -58,7 +58,7 @@ void GeneAlgoManager::IndividualCross(Gene& parGeneA, Gene& parGeneB, Gene& chil
 		for (int j = posA.y; j < posB.y; j++)
 			child[i][j] = parB[i][j];
 
-	childGene.initGene(child);
+	childGene.InitGene(child);
 }
 
 void GeneAlgoManager::Cross() { //need optimization
@@ -68,7 +68,7 @@ void GeneAlgoManager::Cross() { //need optimization
 	int parB = SelectParent(fitSum);
 
 	for (int i = 0; i < elite; i++)
-		newGene[i] = BestGene;
+		newGene[i] = bestGene;
 
 	for (int i = elite; i < remain; i++) {
 		if (i % 2) newGene[i] = geneArr[parA];
@@ -108,8 +108,8 @@ void GeneAlgoManager::SaveBestGene() {
 			mai = i;
 		}
 	}
-	if(ma < gm.EvaluateMax(BestGene)) return;
-	BestGene = geneArr[mai];
+	if(ma < gm.EvaluateMax(bestGene)) return;
+	bestGene = geneArr[mai];
 }
 
 void GeneAlgoManager::NextGeneration()
@@ -123,7 +123,7 @@ void GeneAlgoManager::NextGeneration()
 
 void GeneAlgoManager::PrintBestGene() {
 	int hGene[8][14];
-	BestGene.GetGene(hGene);
+	bestGene.GetGene(hGene);
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 14; j++)
 			cout << hGene[i][j];
@@ -156,12 +156,12 @@ void GeneAlgoManager::LoadAllGene() {
 			for (int k = 0; k < 14; k++)
 				hGene[j][k] = s[k] - '0';
 		}
-		geneArr[i].initGene(hGene);
+		geneArr[i].InitGene(hGene);
 	}
 }
 
 
 
 int GeneAlgoManager::BestGeneScore(){
-	return gm.EvaluateMax(BestGene);
+	return gm.EvaluateMax(bestGene);
 }

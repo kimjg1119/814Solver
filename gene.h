@@ -11,7 +11,7 @@ public :
 	Gene(RandomManager&);
 	Gene(string&);
 	void GetGene(int[8][14]);
-	void initGene(int[8][14]);
+	void InitGene(int[8][14]);
 	void ModifyGene(int, int, int);
 };
 

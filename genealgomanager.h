@@ -16,7 +16,7 @@ private:
 
 	int n;
 	double fitSum;
-	Gene BestGene;
+	Gene bestGene;
 	vector<Gene> geneArr;
 	vector<int> geneScore;
 	vector<double> geneFitness;
