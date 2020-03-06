@@ -23,7 +23,7 @@ public:
 	int EvaluateMax(Gene&);
 	double EvaluateIgnoreOne(Gene&);
 	void ProbMutate(Gene&, double, RandomManager&);
-	void Optimizer(Gene&, int);
+	void Optimizer(Gene&, int, int);
 	void Shuffle(Gene&);
 
 	

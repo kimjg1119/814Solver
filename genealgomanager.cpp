@@ -108,7 +108,8 @@ void GeneAlgoManager::Mutate() {
 
 void GeneAlgoManager::Optimize() {
 	for (int i = 0; i < n; i++) {
-		gm.Optimizer(geneArr[i], max_iter);
+		if (i % 30 == 29) gm.Optimizer(geneArr[i], max_iter, 1);
+		else gm.Optimizer(geneArr[i], max_iter, 0);
 		//cout << i << " ";
 	}
 		
