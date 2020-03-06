@@ -42,6 +42,9 @@ public:
 	int BestGeneScore();
 	void SaveAllGene();
 	void LoadAllGene();
+
+	double returnAverageScore();
+	vector<int> top10Score();
 };
 
 #endif __genealgomanager_h__

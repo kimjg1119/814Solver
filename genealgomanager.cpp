@@ -176,7 +176,22 @@ void GeneAlgoManager::LoadAllGene() {
 }
 
 
-
 int GeneAlgoManager::BestGeneScore() {
 	return gm.EvaluateMax(bestGene);
+}
+
+double GeneAlgoManager::returnAverageScore(){
+	double sum = 0;
+	for (int i = 0; i < n; i++) {
+		sum += geneScore[i];
+	}
+	return sum / n;
+}
+
+vector<int> GeneAlgoManager::top10Score(){
+	vector<int> compareVec = geneScore;
+	sort(compareVec.begin(), compareVec.end(), greater<int>());
+	vector<int> returnVec(10);
+	for (int i = 0; i < 10; i++) returnVec[i] = compareVec[i];
+	return returnVec;
 }

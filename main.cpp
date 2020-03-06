@@ -12,7 +12,8 @@ int main() {
 	for (int i = 0; i < 10000; i++) {
 		GA.NextGeneration();
 		clock_t now_time = clock();
-		cout << "Epoch: " << i << ", Score: " << GA.BestGeneScore() << ", Time: " << (now_time - bf) / CLOCKS_PER_SEC << "s" << endl;
+		cout << "Epoch: " << i << ", Score: " << GA.BestGeneScore() << ", Time: " << (now_time - bf) / CLOCKS_PER_SEC << "s";
+		cout << " Average Score: " << GA.returnAverageScore() << endl;
 		timeSum += now_time - bf;
 		bf = now_time;
 
@@ -21,6 +22,12 @@ int main() {
 			GA.PrintBestGene();
 			cout << "Average Time: " << (double)(timeSum / CLOCKS_PER_SEC) / 10 << "s" << endl;
 			timeSum = 0;
+			vector<int> topScore = GA.top10Score();
+			cout << "Top 10 Scores: ";
+			for (int hScore : topScore)
+				cout << hScore << " ";
+			cout << endl;
+
 			GA.SaveAllGene();
 		}
 	}
