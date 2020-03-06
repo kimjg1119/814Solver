@@ -175,7 +175,7 @@ int GeneAlgoManager::BestGeneScore() {
 	return gm.EvaluateMax(bestGene);
 }
 
-double GeneAlgoManager::returnAverageScore() {
+double GeneAlgoManager::returnAverageScore(){
 	double timeSum = 0;
 	for (int i = 0; i < n; i++) {
 		timeSum += geneScore[i];
