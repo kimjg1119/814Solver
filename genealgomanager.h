@@ -21,7 +21,7 @@ private:
 	Gene bestGene;
 	vector<Gene> geneArr;
 	vector<int> geneScore;
-	vector<int> geneFitScore;
+	vector<double> geneFitScore;
 	vector<double> geneFitness;
 	GeneManager gm;
 	RandomManager rm;

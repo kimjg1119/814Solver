@@ -1,105 +1,114 @@
 ## Class : Gene
 
-ìœ ì „ìžë¥¼ í‘œí˜„í•˜ëŠ” ì»¨í…Œì´ë„ˆ í´ëž˜ìŠ¤ìž…ë‹ˆë‹¤.
+À¯ÀüÀÚ¸¦ Ç¥ÇöÇÏ´Â ÄÁÅ×ÀÌ³Ê Å¬·¡½ºÀÔ´Ï´Ù.
 
 ### Variables
 
-* gene : 8*14 ì´ì°¨ì› ë°°ì—´ë¡œ 0ë¶€í„° 9ê¹Œì§€ì˜ ì›ì†Œë¥¼ ê°€ì§€ëŠ” ìœ ì „ìžìž…ë‹ˆë‹¤.
+| Á¢±ÙÁ¦¾îÀÚ | ÀÌ¸§ | ¼³¸í                                                         |
+| ---------- | ---- | ------------------------------------------------------------ |
+| private    | gene | 8*14 ÀÌÂ÷¿ø ¹è¿­·Î 0ºÎÅÍ 9±îÁöÀÇ ¿ø¼Ò¸¦ °¡Áö´Â À¯ÀüÀÚÀÔ´Ï´Ù. |
+
+### Constructor
+
+| ÀÌ¸§                    | ¼³¸í                                                     |
+| ----------------------- | -------------------------------------------------------- |
+| Gene(void)              | ¸ðµç ¿ø¼Ò´Â 0À¸·Î ÃÊ±âÈ­µË´Ï´Ù.                          |
+| Gene(RandomManager& rm) | ¸ðµç ¿ø¼Ò´Â 0ºÎÅÍ 9 »çÀÌ ³­¼ö·Î ÃÊ±âÈ­µË´Ï´Ù.            |
+| Gene(String &gene)      | 1Â÷¿ø ¹®ÀÚ¿­À» ÀÔ·ÂÀ¸·Î ¹Þ¾Æ, 2Â÷¿ø ¹è¿­·Î º¯È¯ÇØÁÝ´Ï´Ù. |
 
 ### Functions
 
-#### ìƒì„±ìž
+| Á¢±ÙÁ¦¾îÀÚ | ÀÌ¸§                                | ¼³¸í                                                         |
+| ---------- | ----------------------------------- | ------------------------------------------------------------ |
+| pubic      | void GetGene(int[8][14] arr)        | ÀÌÂ÷¿ø ¹è¿­À» ÀÔ·ÂÀ¸·Î ¹Þ¾Æ, ±× ¹è¿­¿¡ ÇöÀç À¯ÀüÀÚ¸¦ ³Ö¾îÁÝ´Ï´Ù. |
+| public     | int GetGene(int i, int j)           | (i, j)¿¡ À§Ä¡ÇÑ ¿ø¼Ò¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.                           |
+| public     | void InitGene(int[8][14] arr)       | ÀÌÂ÷¿ø ¹è¿­À» ÀÔ·ÂÀ¸·Î ¹Þ¾Æ, ±× ¹è¿­·Î À¯ÀüÀÚ¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù. |
+| public     | void odifyGene(int i, int j, int k) | (i, j)¿¡ À§Ä¡ÇÑ ¿ø¼Ò¸¦ k·Î º¯°æÇÕ´Ï´Ù. µ¹¿¬º¯ÀÌ ÀÛ¾÷À» ¼öÇàÇÒ ¶§ ÁÖ·Î »ç¿ëÇÕ´Ï´Ù. |
 
-* void : ëª¨ë“  ì›ì†ŒëŠ” 0ìœ¼ë¡œ ì´ˆê¸°í™”ë©ë‹ˆë‹¤.
-* RandomManager& : ëª¨ë“  ì›ì†ŒëŠ” 0ë¶€í„° 9 ì‚¬ì´ ë‚œìˆ˜ë¡œ ì´ˆê¸°í™”ë©ë‹ˆë‹¤.
-* string& : 1ì°¨ì› ë¬¸ìžì—´ì„ ìž…ë ¥ìœ¼ë¡œ ë°›ì•„, 2ì°¨ì› ë°°ì—´ë¡œ ë³€í™˜í•´ì¤ë‹ˆë‹¤.
 
-#### GetGene
 
-* GetGene(int[][]) : ì´ì°¨ì› ë°°ì—´ì„ ìž…ë ¥ìœ¼ë¡œ ë°›ì•„, ê·¸ ë°°ì—´ì— í˜„ìž¬ ìœ ì „ìžë¥¼ ë„£ì–´ ì¤ë‹ˆë‹¤.
-* GetGene(i, j) : (i, j)ì— ìœ„ì¹˜í•œ ìˆ«ìž ë°˜í™˜
+## EvalManager
 
-#### InitGene
+### Variables
 
-* ì´ì°¨ì› ë°°ì—´ì„ ìž…ë ¥ìœ¼ë¡œ ë°›ì•„, ê·¸ ë°°ì—´ë¡œ ìœ ì „ìžë¥¼ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
+| Á¢±ÙÁ¦¾îÀÚ | ÀÌ¸§             | ¼³¸í                                               |
+| ---------- | ---------------- | -------------------------------------------------- |
+| private    | int dx[8], dy[8] | none                                               |
+| private    | int ignore_limit | EvalIgnoreOne¿¡¼­ °í·ÁÇÒ ¼ýÀÚÀÇ »óÇÑÀ» ¼³Á¤ÇÕ´Ï´Ù. |
 
-#### ModifyGene
+### Functions
 
-* ì¢Œí‘œì™€ ê°’ì„ ìž…ë ¥ìœ¼ë¡œ ë°›ì•„, ê·¸ ì¢Œí‘œì˜ ê°’ì„ ìž…ë ¥ëœ ê°’ìœ¼ë¡œ ìˆ˜ì •í•©ë‹ˆë‹¤.
-* ëŒì—°ë³€ì´ ìž‘ì—…ì„ ìˆ˜í–‰í•  ë•Œ ì£¼ë¡œ ì‚¬ìš©í•©ë‹ˆë‹¤.
+| Á¢±ÙÁ¦¾îÀÚ | ÀÌ¸§                                                         | ¼³¸í                                                         |
+| ---------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| private    | bool BackTracking(const int v[8][14], int i, int j, int now) | ÀÌÂ÷¿ø¹è¿­ v¿¡¼­ now¸¦ Ã£´Â ¹éÆ®·¡Å·À» ¼öÇàÇÕ´Ï´Ù.           |
+| private    | bool HasNum(const int v[8][14], int now)                     | ÀÌÂ÷¿ø¹è¿­ v¿¡ now°¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎÇÕ´Ï´Ù.<br />BackTrackingÀ» ¼öÇàÇÕ´Ï´Ù. |
+| private    | int GetScore(const int v[8][14])                             | ÀÌ À¯ÀüÀÚÀÇ Á¡¼ö¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.<br />HasNumÀ» ¼öÇàÇÕ´Ï´Ù.     |
+| private    | double GetScoreIgnoreOne(const int v[8][14])                 | ÀÌ À¯ÀüÀÚÀÇ Á¡¼ö¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.<br />1ºÎÅÍ ignore_limit±îÁö º¸¸é¼­ Á¸ÀçÇÏÁö ¾Ê´Â ¼ö°¡ ³ª¿Ã ¶§¸¶´Ù Á¡¼öÀÇ Áõ°¡ ÆøÀÌ 1/2·Î °¨¼ÒÇÕ´Ï´Ù.<br />HasNumÀ» ¼öÇàÇÕ´Ï´Ù. |
+| public     | EvalIgnoreOne(Gene& g)                                       | return GetScoreIgnoreOne(~)                                  |
+| public     | EvalScore(Gene& g)                                           | return getScore(~)                                           |
+
+
 
 
 
 ## GeneManager
 
-ìœ ì „ìžì— ëŒ€í•œ ê°„ë‹¨í•œ ì—°ì‚°ì„ ìˆ˜í–‰í•  ìˆ˜ ìžˆëŠ” ë§¤ë‹ˆì € í´ëž˜ìŠ¤ìž…ë‹ˆë‹¤.
+À¯ÀüÀÚ¿¡ ´ëÇÑ °£´ÜÇÑ ¿¬»êÀ» ¼öÇàÇÒ ¼ö ÀÖ´Â ¸Å´ÏÀú Å¬·¡½ºÀÔ´Ï´Ù.
 
 ### Variables
 
-* dx,dy : ì„¤ëª…ì´ í•„ìš”í•˜ì‹­ë‹ˆê¹Œ?
+| Á¢±ÙÁ¦¾îÀÚ | ÀÌ¸§             | ¼³¸í                                                         |
+| ---------- | ---------------- | ------------------------------------------------------------ |
+| private    | int dx[8], dy[8] | none                                                         |
+| private    | RandomManager rm | °¢Á¾ ·£´ý ÀÛ¾÷À» ¼öÇàÇÒ ¶§ »ç¿ëÇÏ´Â RandomManager °´Ã¼ÀÔ´Ï´Ù. |
+| private    | Eval eval        | Á¡¼ö °è»êÀ» À§ÇØ »ç¿ëÇÏ´Â EvalManager °´Ã¼ÀÔ´Ï´Ù.            |
+
+### Constructor
+
+| ÀÌ¸§                  | ¼³¸í                    |
+| --------------------- | ----------------------- |
+| GeneManager(int seed) | rmÀÇ seed¸¦ ¼³Á¤ÇÕ´Ï´Ù. |
 
 ### Functions
 
-#### BasicEvaluate
-
-* ì´ ìœ ì „ìžì—ì„œ ë§Œë“¤ ìˆ˜ ìžˆëŠ” 4ìžë¦¬ ì´í•˜ ì¡°í•©ì— ëŒ€í•œ ë²¡í„°ë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
-* ë²¡í„°ëŠ” í¬ê¸°ê°€ 1ë§Œì´ë©°, ì¡°í•©ì´ ë§Œë“¤ì–´ì§ˆ ìˆ˜ ìžˆë‹¤ë©´ 1, ì•„ë‹ˆë¼ë©´ 0ì´ ë“¤ì–´ ìžˆìŠµë‹ˆë‹¤.
-
-#### EvaluateMax
-
-* í‰ê°€í•¨ìˆ˜ ì¤‘ ê°€ìž¥ ë‹¨ìˆœí•œ ê¼´ë¡œ ì„¤ê³„ë˜ì—ˆìŠµë‹ˆë‹¤.
-* ìœ ì „ìž í•˜ë‚˜ë¥¼ ë°›ì•„ì„œ ë¬¸ì œì—ì„œ ìš”êµ¬í•˜ëŠ” "ì ìˆ˜"ë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
-
-#### ProbMutate
-
-* ìœ ì „ìžì™€ í™•ë¥ , RandomManager ê°ì²´ í•˜ë‚˜ë¥¼ ë°›ì•„ ìœ ì „ìžì˜ ê° ì›ì†Œì— ëŒ€í•´ ì£¼ì–´ì§„ í™•ë¥ ë¡œ ëŒì—°ë³€ì´ë¥¼ ìˆ˜í–‰í•©ë‹ˆë‹¤.
-* ëŒì—°ë³€ì´ì˜ ê²°ê³¼ë¡œ ë°”ë€ŒëŠ” ê°’ì€ 0ë¶€í„° 9 ì‚¬ì´ì˜ ë“±í™•ë¥  ë‚œìˆ˜ìž…ë‹ˆë‹¤.
-
-#### Optimizer
-
-* íŒŒë¼ë¯¸í„°ë¡œ ë“¤ì–´ì˜¤ëŠ” ìœ ì „ìžì— ëŒ€í•´ ì§€ì—­ ìµœì í™”ë¥¼ ìˆ˜í–‰í•©ë‹ˆë‹¤.
-
-#### Shuffle
-
-* íŒŒë¼ë¯¸í„°ë¡œ ë“¤ì–´ì˜¤ ìœ ì „ìžë¥¼ ì ë‹¹ížˆ ì„žì–´ì¤ë‹ˆë‹¤. ì£¼ë¡œ local optimalì—ì„œ íƒˆì¶œí•˜ê¸° ìœ„í•´ ì‚¬ìš©í•©ë‹ˆë‹¤.
+| Á¢±ÙÁ¦¾îÀÚ | ÀÌ¸§                                                        | ¼³¸í                                                         |
+| ---------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| private    | vector&lt;int&gt; BasicEvaluate(Gene& gene)                 | ÀÌ À¯ÀüÀÚ¿¡¼­ ¸¸µé ¼ö ÀÖ´Â 10000 ¹Ì¸¸ÀÇ ¼ýÀÚ¿¡ ´ëÇÑ º¤ÅÍ¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.<br />¸¸µé ¼ö ÀÖÀ¸¸é 1, ¸¸µé ¼ö ¾øÀ¸¸é 0ÀÌ µé¾îÀÖ½À´Ï´Ù. ÇöÀç´Â »ç¿ëÇÏÁö ¾Ê½À´Ï´Ù. |
+| public     | int EvaluateMax(Gene& gene)                                 | ÀÌ À¯ÀüÀÚÀÇ Á¡¼ö¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.                               |
+| public     | double EvaluateIgnoreOne(Gene& gene)                        | ÀÌ À¯ÀüÀÚÀÇ Á¡¼ö¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.<br />ÀÌ¶§ Á¡¼ö´Â EvalManager::ignore_limit ±îÁöÀÇ ¼ýÀÚ¸¦ ¸ðµÎ º¸¸é¼­, ¸¸µé ¼ö ¾ø´Â ¼ýÀÚ°¡ ³ª¿Ã ¶§¸¶´Ù Àý¹ÝÀ¸·Î °¨¼ÒÇÕ´Ï´Ù. |
+| public     | void ProbMutate(Gene& gene, double prob, RandomManager &rm) | À¯ÀüÀÚ, È®·ü, RandomManager °´Ã¼¸¦ ¹Þ¾Æ À¯ÀüÀÚÀÇ °¢ ¿ø¼Ò¿¡ ´ëÇØ ÁÖ¾îÁø È®·ü·Î µ¹¿¬º¯ÀÌ¸¦ ¼öÇàÇÕ´Ï´Ù.<br />µ¹¿¬º¯ÀÌÀÇ °á°ú·Î ¹Ù²î´Â °ªÀº 0~9 »çÀÌÀÇ µîÈ®·ü ³­¼öÀÔ´Ï´Ù. |
+| public     | void Optimizer(Gene& gene, int max_iter)                    | ÀÌ À¯ÀüÀÚ¿¡ ´ëÇØ Áö¿ª ÃÖÀûÈ­¸¦ ÃÖ´ë max_iter¹ø ¼öÇàÇÕ´Ï´Ù.   |
+| public     | void Shuffle(Gene&)                                         | ÀÌ À¯ÀüÀÚ¸¦ ¼¯¾îÁÝ´Ï´Ù.<br />ÁÖ·Î Local Optimal¿¡¼­ Å»ÃâÇÏ±â À§ÇØ »ç¿ëÇÕ´Ï´Ù. |
 
 
 
 ## RandomManager
 
-ë‚œìˆ˜ì— ëŒ€í•œ ê¸°ë³¸ì ì¸ ì—°ì‚°ì„ ìˆ˜í–‰í•  ìˆ˜ ìžˆëŠ” ë§¤ë‹ˆì € í´ëž˜ìŠ¤ìž…ë‹ˆë‹¤.
+³­¼ö¿¡ ´ëÇÑ ±âº»ÀûÀÎ ¿¬»êÀ» ¼öÇàÇÒ ¼ö ÀÖ´Â ¸Å´ÏÀú Å¬·¡½ºÀÔ´Ï´Ù.
 
 ### Variables
 
-* seed : ë§ ê·¸ëŒ€ë¡œ ì‹œë“œìž…ë‹ˆë‹¤.
-* rngInt09: ë¯¸ë¦¬ ë²”ìœ„ê°€ ì§€ì •ëœ ë³€ìˆ˜ë¡œ, 0ë¶€í„° 9ê¹Œì§€ì˜ ì •ìˆ˜ë¥¼ ë°˜í™˜í•˜ê¸° ìœ„í•¨ìž…ë‹ˆë‹¤. ì£¼ë¡œ ìœ ì „ìžì— ì“°ìž…ë‹ˆë‹¤.
-* rngDouble01: ë¯¸ë¦¬ ë²”ìœ„ê°€ ì§€ì •ëœ ë³€ìˆ˜ë¡œ, 0ë¶€í„° 1ê¹Œì§€ì˜ ì‹¤ìˆ˜ë¥¼ ë°˜í™˜í•˜ê¸° ìœ„í•¨ìž…ë‹ˆë‹¤. ì£¼ë¡œ í™•ë¥  ê´€ë ¨ ë‚œìˆ˜ì— ì“°ìž…ë‹ˆë‹¤.
+| Á¢±ÙÁ¦¾îÀÚ | ÀÌ¸§                                                | ¼³¸í                                                         |
+| ---------- | --------------------------------------------------- | ------------------------------------------------------------ |
+| private    | mt19937_64 seed                                     | none                                                         |
+| private    | uniform_int_distribution&lt;int&gt; rngInt09        | ¹Ì¸® ¹üÀ§°¡ ÁöÁ¤µÈ º¯¼ö·Î, 0ºÎÅÍ 9±îÁöÀÇ Á¤¼ö¸¦ ¹ÝÈ¯ÇÏ±â À§ÇÔÀÔ´Ï´Ù. ÁÖ·Î À¯ÀüÀÚ¿¡ ¾²ÀÔ´Ï´Ù. |
+| private    | uniform_real_distribution&lt;double&gt; rngDouble01 | ¹Ì¸® ¹üÀ§°¡ ÁöÁ¤µÈ º¯¼ö·Î, 0ºÎÅÍ 1±îÁöÀÇ ½Ç¼ö¸¦ ¹ÝÈ¯ÇÏ±â À§ÇÔÀÔ´Ï´Ù. ÁÖ·Î È®·ü °ü·Ã ³­¼ö¿¡ ¾²ÀÔ´Ï´Ù. |
+
+### Constructor
+
+| ÀÌ¸§                              | ¼³¸í               |
+| --------------------------------- | ------------------ |
+| RandomManager(unsigned int seed); | seed¸¦ ¼³Á¤ÇÕ´Ï´Ù. |
 
 ### Functions
 
-#### RandomManager
-
-* unsigned int í˜• ì‹œë“œë¥¼ ë°›ì•„ì„œ rng ë³€ìˆ˜ì— ì œê³µí•©ë‹ˆë‹¤.
-
-#### RandomInt09
-
-* 0ë¶€í„° 9 ì‚¬ì´ì˜ ì •ìˆ˜ë¥¼ í•˜ë‚˜ ë°˜í™˜í•©ë‹ˆë‹¤.
-
-#### RandomDouble01
-
-* 0ë¶€í„° 1 ì‚¬ì´ì˜ ì‹¤ìˆ˜ë¥¼ í•˜ë‚˜ ë°˜í™˜í•©ë‹ˆë‹¤.
-
-#### RandomDouble
-
-* ì‹¤ìˆ˜ í•˜ë‚˜ë¥¼ ìž…ë ¥ìœ¼ë¡œ ë°›ì•„, 0ë¶€í„° ìž…ë ¥ëœ ì‹¤ìˆ˜ ì‚¬ì´ì—ì„œ ì‹¤ìˆ˜í˜• ë‚œìˆ˜ë¥¼ í•˜ë‚˜ ë°˜í™˜í•©ë‹ˆë‹¤.
-
-#### RandomPosition
-
-* ë¬´ìž‘ìœ„ ì¢Œí‘œë¥¼ í•˜ë‚˜ ë°˜í™˜í•©ë‹ˆë‹¤.
-
-#### TwoRandomPosition
-
-* ê²¹ì¹˜ì§€ ì•ŠëŠ” ë¬´ìž‘ìœ„ ì¢Œí‘œ 2ê°œë¥¼ ë°˜í™˜í•©ë‹ˆë‹¤.
+| Á¢±ÙÁ¦¾îÀÚ | ÀÌ¸§                               | ¼³¸í                                      |
+| ---------- | ---------------------------------- | ----------------------------------------- |
+| public     | int RandomInt09(void)              | 0~9 »çÀÌÀÇ Á¤¼ö¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.             |
+| public     | double RandomDouble01(void)        | 0~1 »çÀÌÀÇ ½Ç¼ö¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.             |
+| public     | double RandomDouble(double d)      | 0~d »çÀÌÀÇ ½Ç¼ö¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù.             |
+| public     | Pos RandomPosition(void)           | ¹«ÀÛÀ§ ÁÂÇ¥¸¦ ÇÏ³ª ¹ÝÈ¯ÇÕ´Ï´Ù.            |
+| public     | pair<Pos, Pos> TwoRandomPosition() | °ãÄ¡Áö ¾Ê´Â ¹«ÀÛÀ§ ÁÂÇ¥ 2°³¸¦ ¹ÝÈ¯ÇÕ´Ï´Ù. |
 
 
 
@@ -107,96 +116,44 @@
 
 ### Variables
 
-* fitness_k : ë£°ë › íœ ì—ì„œì˜ ì„ íƒì••ì„ ì¡°ì ˆí•©ë‹ˆë‹¤. ë³´ë‹¤ êµ¬ì²´ì ìœ¼ë¡œ, ëª¨ë“  ìœ ì „ìžì— ëŒ€í•´ì„œ ê° ìœ ì „ìžê°€ ê°€ì§€ëŠ” í™•ë¥  íŒŒì´ëŠ” ê°€ìž¥ ì¢‹ì€ ìœ ì „ìžê°€ ê°€ìž¥ ë‚˜ìœ ìœ ì „ìžì˜ fitness_kë°°ê°€ ë©ë‹ˆë‹¤. ë‚˜ë¨¸ì§€ ìœ ì „ìžì— ëŒ€í•´ì„œëŠ” ê·¸ ì‚¬ì´ì—ì„œ ì–»ì€ ì ìˆ˜ì— ëŒ€í•´ ì„ í˜•ìž…ë‹ˆë‹¤. ì¦ê°€ì‹œí‚¬ìˆ˜ë¡ ì„ íƒì••ì´ ì¦ê°€í•©ë‹ˆë‹¤. 3~4ê°€ ì£¼ë¡œ ì‚¬ìš©ë©ë‹ˆë‹¤.
-* mutate_prob : ê° ì›ì†Œì— ëŒ€í•œ ëŒì—°ë³€ì´ í™•ë¥ ìž…ë‹ˆë‹¤. ì¦ê°€ì‹œí‚¬ìˆ˜ë¡ ì„ íƒì••ì´ ê°ì†Œí•©ë‹ˆë‹¤. 0ë¶€í„° 1 ì‚¬ì´ìž…ë‹ˆë‹¤.
-* remain : ìˆ˜ì •ë˜ê±°ë‚˜ ì œê±°ë  ìˆ˜ ìžˆëŠ” ë³€ìˆ˜ìž…ë‹ˆë‹¤. remainì—ì„œ eliteë¥¼ ëº€ ìˆ˜ ë§Œí¼ ë¶€ëª¨ ê°œì²´ë¥¼ ê·¸ëŒ€ë¡œ ìœ ì§€ì‹œí‚µë‹ˆë‹¤. ì¦ê°€í• ìˆ˜ë¡ ìœ ì „ì  ë‹¤ì–‘ì„±ì´ ì¤„ì–´ë“¤ê³  ì•ˆì •ì„±ì´ ëŠ˜ì–´ë‚©ë‹ˆë‹¤.
-* elite : ìˆ˜ì •ë˜ê±°ë‚˜ ì œê±°ë  ìˆ˜ ìžˆëŠ” ë³€ìˆ˜ìž…ë‹ˆë‹¤. ì´ì œê¹Œì§€ ë“±ìž¥í•œ ìœ ì „ìž ì¤‘ ê°€ìž¥ ì¢‹ì€ ìœ ì „ìžë¥¼ ì´ ë³€ìˆ˜ì˜ ê°’ ë§Œí¼ ìœ ì „ìž í’€ì— ì¶”ê°€í•©ë‹ˆë‹¤. ì¦ê°€í• ìˆ˜ë¡ ìœ ì „ì  ë‹¤ì–‘ì„±ì´ ì¤„ì–´ë“¤ê³  ì•ˆì •ì„±ì´ ëŠ˜ì–´ë‚©ë‹ˆë‹¤. ì´ ë³€ìˆ˜ì˜ ì ì ˆí•œ í™œìš©ì€ ìœ ì „ì  ì•ˆì •ì„±ì´ ê¹¨ì§€ì§€ ì•Šê²Œ í•˜ê³  ì ìˆ˜ë¥¼ ìƒìŠ¹ì‹œí‚¤ëŠ” ë° í° ê¸°ì—¬ë¥¼ í•˜ì§€ë§Œ, ë™ì‹œì— Local Maximaì— ë¹ ì§ˆ í™•ë¥  ë˜í•œ í¬ê²Œ ì¦ê°€ì‹œí‚µë‹ˆë‹¤.
-* n : ìœ ì „ìžì˜ ê°œìˆ˜ìž…ë‹ˆë‹¤.
-* fitSum : ì í•©ë„ì˜ í•©ìž…ë‹ˆë‹¤. SelectParent í•¨ìˆ˜ì—ì„œ ì‚¬ìš©ë©ë‹ˆë‹¤.
-* bestGene : í˜„ìž¬ê¹Œì§€ ë“±ìž¥í•œ ê²ƒ ì¤‘ ê°€ìž¥ ë‚˜ì€ ìœ ì „ìžìž…ë‹ˆë‹¤.
-* geneArr : ìœ ì „ìžë“¤ì„ ë‹´ê³  ìžˆëŠ” ë²¡í„°ìž…ë‹ˆë‹¤.
-* geneScore : ìœ ì „ìžë“¤ì— ëŒ€í•œ í‰ê°€ í•¨ìˆ˜ ì ìˆ˜ë¥¼ ë‹´ëŠ” ë²¡í„°ìž…ë‹ˆë‹¤.
-* geneFitness : ìœ ì „ìžë“¤ì— ëŒ€í•œ ì í•©ë„ë¥¼ ë‹´ëŠ” ë²¡í„°ìž…ë‹ˆë‹¤. ì í•©ë„ëŠ” ì‹¤ìˆ˜ë¡œ í‘œí˜„ë˜ë©°, ë£°ë › íœ  ë°©ì‹ì„ ë”°ë¦…ë‹ˆë‹¤.
+| Á¢±ÙÁ¦¾îÀÚ | ÀÌ¸§                             | ¼³¸í                                                         |
+| ---------- | -------------------------------- | ------------------------------------------------------------ |
+| private    | double fitness_k                 | ·ê·¿ ÈÙ¿¡¼­ÀÇ ¼±ÅÃ¾ÐÀ» Á¶ÀýÇÕ´Ï´Ù. º¸´Ù ±¸Ã¼ÀûÀ¸·Î, ¸ðµç À¯ÀüÀÚ¿¡ ´ëÇØ¼­ °¢ À¯ÀüÀÚ°¡ °¡Áö´Â È®·ü ÆÄÀÌ´Â °¡Àå ÁÁÀº À¯ÀüÀÚ°¡ °¡Àå ³ª»Û À¯ÀüÀÚÀÇ fitness_k¹è°¡ µË´Ï´Ù. ³ª¸ÓÁö À¯ÀüÀÚ¿¡ ´ëÇØ¼­´Â ±× »çÀÌ¿¡¼­ ¾òÀº Á¡¼ö¿¡ ´ëÇØ ¼±ÇüÀÔ´Ï´Ù. Áõ°¡½ÃÅ³¼ö·Ï ¼±ÅÃ¾ÐÀÌ Áõ°¡ÇÕ´Ï´Ù. 3~4°¡ ÁÖ·Î »ç¿ëµË´Ï´Ù. |
+| private    | double mutate_prob               | °¢ ¿ø¼Ò¿¡ ´ëÇÑ µ¹¿¬º¯ÀÌ È®·üÀÔ´Ï´Ù. Áõ°¡½ÃÅ³¼ö·Ï ¼±ÅÃ¾ÐÀÌ °¨¼ÒÇÕ´Ï´Ù. 0ºÎÅÍ 1 »çÀÌÀÔ´Ï´Ù. |
+| private    | double gene_mutate_prob          | **@TODO**                                                    |
+| private    | double all_init                  | **@TODO**                                                    |
+| private    | int elite                        | ¼öÁ¤µÇ°Å³ª Á¦°ÅµÉ ¼ö ÀÖ´Â º¯¼öÀÔ´Ï´Ù. ÀÌÁ¦±îÁö µîÀåÇÑ À¯ÀüÀÚ Áß °¡Àå ÁÁÀº À¯ÀüÀÚ¸¦ ÀÌ º¯¼öÀÇ °ª ¸¸Å­ À¯ÀüÀÚ Ç®¿¡ Ãß°¡ÇÕ´Ï´Ù. Áõ°¡ÇÒ¼ö·Ï À¯ÀüÀû ´Ù¾ç¼ºÀÌ ÁÙ¾îµé°í ¾ÈÁ¤¼ºÀÌ ´Ã¾î³³´Ï´Ù. ÀÌ º¯¼öÀÇ ÀûÀýÇÑ È°¿ëÀº À¯ÀüÀû ¾ÈÁ¤¼ºÀÌ ±úÁöÁö ¾Ê°Ô ÇÏ°í Á¡¼ö¸¦ »ó½Â½ÃÅ°´Â µ¥ Å« ±â¿©¸¦ ÇÏÁö¸¸, µ¿½Ã¿¡ Local Maxima¿¡ ºüÁú È®·ü ¶ÇÇÑ Å©°Ô Áõ°¡½ÃÅµ´Ï´Ù. |
+| private    | int remain                       | ¼öÁ¤µÇ°Å³ª Á¦°ÅµÉ ¼ö ÀÖ´Â º¯¼öÀÔ´Ï´Ù. remain¿¡¼­ elite¸¦ »« ¼ö ¸¸Å­ ºÎ¸ð °³Ã¼¸¦ ±×´ë·Î À¯Áö½ÃÅµ´Ï´Ù. Áõ°¡ÇÒ¼ö·Ï À¯ÀüÀû ´Ù¾ç¼ºÀÌ ÁÙ¾îµé°í ¾ÈÁ¤¼ºÀÌ ´Ã¾î³³´Ï´Ù. |
+| private    | int max_iter                     | OptimizerÀÇ ¼öÇà È½¼ö¸¦ Á¦ÇÑÇÕ´Ï´Ù.<br />°ªÀÌ Å¬¼ö·Ï Áö¿ª ÃÖÀûÈ­¸¦ ¸¹ÀÌ ¼öÇàÇÏÁö¸¸ ¼Óµµ ÀúÇÏÀÇ À§ÇèÀÌ ÀÖ½À´Ï´Ù. |
+| private    | int n                            | À¯ÀüÀÚÀÇ °³¼öÀÔ´Ï´Ù.                                         |
+| private    | double fitSum                    | ÀûÇÕµµÀÇ ÇÕÀÔ´Ï´Ù. SelectParent ÇÔ¼ö¿¡¼­ »ç¿ëµË´Ï´Ù.         |
+| private    | Gene bestGene                    | ÇöÀç±îÁö µîÀåÇÑ °Í Áß °¡Àå ³ªÀº À¯ÀüÀÚÀÔ´Ï´Ù.                |
+| private    | vector&lt;Gene&gt; geneArr       | À¯ÀüÀÚµéÀ» ´ã°í ÀÖ´Â º¤ÅÍÀÔ´Ï´Ù.                             |
+| private    | vector&lt;int&gt; geneScore      | À¯ÀüÀÚµé¿¡ ´ëÇÑ Æò°¡ ÇÔ¼ö Á¡¼ö¸¦ ´ã´Â º¤ÅÍÀÔ´Ï´Ù.            |
+| private    | vector&lt;int&gt; geneFitScore   | **@TODO**                                                    |
+| private    | vector&lt;double&gt; geneFitness | À¯ÀüÀÚµé¿¡ ´ëÇÑ ÀûÇÕµµ¸¦ ´ã´Â º¤ÅÍÀÔ´Ï´Ù. ÀûÇÕµµ´Â ½Ç¼ö·Î Ç¥ÇöµÇ¸ç, ·ê·¿ ÈÙ ¹æ½ÄÀ» µû¸¨´Ï´Ù. |
+| private    | GeneManager gm                   | GeneManager Å¬·¡½º °´Ã¼ÀÔ´Ï´Ù.                               |
+| private    | RandomManager rm                 | RandomManger Å¬·¡½º °´Ã¼ÀÔ´Ï´Ù.                              |
 
-* gm : GeneManager í´ëž˜ìŠ¤ ê°ì²´ìž…ë‹ˆë‹¤.
-* rm : RandomManger í´ëž˜ìŠ¤ ê°ì²´ìž…ë‹ˆë‹¤.
+### Consturctor
+
+| ÀÌ¸§                             | ¼³¸í                                                |
+| -------------------------------- | --------------------------------------------------- |
+| GeneAlgoManager(int n, int seed) | À¯ÀüÀÚ °³¼ö¸¦ nÀ¸·Î, ·£´ý ½Ãµå¸¦ seed·Î ¼³Á¤ÇÕ´Ï´Ù. |
 
 ### Functions
 
-#### CalculateScore
-
-* GeneManager í´ëž˜ìŠ¤ì˜ EvaluateMaxë¥¼ í‰ê°€í•¨ìˆ˜ë¡œ ì‚¬ìš©í•˜ì—¬ geneScore ë²¡í„°ì— ì ìˆ˜ë¥¼ ì±„ì›ë‹ˆë‹¤.
-
-#### CalculateFitness
-
-* CalculateScore í•¨ìˆ˜ë¥¼ í†µí•´ ê³„ì‚°ëœ geneScore ë²¡í„°ë¥¼ í™œìš©í•´ ê° ìœ ì „ìžì˜ Fitness, ì¦‰ ì í•©ë„ë¥¼ ê³„ì‚°í•´ geneFitness ë²¡í„°ì— ì í•©ë„ë¥¼ ì±„ì›ë‹ˆë‹¤.
-
-#### SelectParent
-
-* CalculateFitnessë¥¼ í•¨ìˆ˜ë¥¼ í†µí•´ ê³„ì‚°ëœ geneFitness ë²¡í„°ë¥¼ í™œìš©í•´ ë£°ë › íœ  ë°©ì‹ìœ¼ë¡œ ìœ ì „ìžë“¤ ì¤‘ ë¶€ëª¨ê°€ ë  ìœ ì „ìžë¥¼ í•˜ë‚˜ ê³ ë¦…ë‹ˆë‹¤.
-
-#### IndividualCross
-
-* ìœ ì „ìž 3ê°œë¥¼ ë°›ì•„, 1ë²ˆì§¸ì™€ 2ë²ˆì§¸ ìœ ì „ìžë¥¼ ë¶€ëª¨ë¡œ í•˜ì—¬ êµì°¨ëœ ê²°ê³¼ë¥¼ 3ë²ˆì§¸ ìœ ì „ìžì— ë„£ìŠµë‹ˆë‹¤.
-* êµì°¨ ë°©ì‹ì€ 1ë²ˆì§¸ ìœ ì „ìžì—ì„œ ìž„ì˜ì˜ ì§ì‚¬ê°í˜•ì„ ëžœë¤í•˜ê²Œ ìž¡ì•„ ê·¸ ì•ˆì„ 2ë²ˆì§¸ ìœ ì „ìžë¡œ êµì²´í•˜ëŠ” ë°©ì‹ìž…ë‹ˆë‹¤.
-
-#### Cross
-
-* elite ë³€ìˆ˜ì˜ ê°’ ë§Œí¼ ì´ì œê¹Œì§€ ë‚˜ì˜¨ ê²ƒ ì¤‘ ê°€ìž¥ ì¢‹ì€ ìœ ì „ìžë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.
-* ê·¸ í›„ remain ë³€ìˆ˜ì˜ ê°’ ë§Œí¼ ê¸°ì¡´ì˜ ìœ ì „ìžë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤. ê¸°ì¡´ì˜ ìœ ì „ìžëŠ” í•˜ë‚˜ê°€ ì•½ 2.5ê°œ ì‚½ìž…ë©ë‹ˆë‹¤.
-* ê·¸ í›„ ë‚¨ì€ ìœ ì „ìžëŠ” IndividualCrossë¥¼ í†µí•œ êµì°¨ë¥¼ í†µí•´ ì¶”ê°€ë©ë‹ˆë‹¤.
-
-#### Mutate
-
-* ëª¨ë“  ìœ ì „ìžì— ëŒ€í•´ geneManager í´ëž˜ìŠ¤ì˜ ëŒì—°ë³€ì´ë¥¼ ì ìš©í•©ë‹ˆë‹¤.
-
-#### Optimize
-
-* ëª¨ë“  ìœ ì „ìžì— ëŒ€í•´ GeneManager í´ëž˜ìŠ¤ì— ìž‘ì„±ëœ ì§€ì—­ ìµœì í™”ë¥¼ ìˆ˜í–‰í•©ë‹ˆë‹¤.
-
-#### Restart
-
-* ëª¨ë“  ìœ ì „ìžì— ëŒ€í•´ GeneManager í´ëž˜ìŠ¤ì˜ Shuffle ë©”ì†Œë“œë¥¼ ìˆ˜í–‰í•©ë‹ˆë‹¤. Local Optimalì— ë¹ ì§„ ê²½ìš° íƒˆì¶œí•˜ê¸° ìœ„í•´ ì‚¬ìš©í•©ë‹ˆë‹¤.
-
-#### SaveBestGene
-
-* í˜„ìž¬ ê°€ìž¥ ì ìˆ˜ê°€ ë†’ì€ ìœ ì „ìžì™€ ê¸°ì¡´ ìœ ì „ìžë¥¼ ë¹„êµí•´ì„œ ë” ë‚˜ì€ ê°’ì„ ì €ìž¥í•©ë‹ˆë‹¤.
-
-#### GeneAlgoManager
-
-* ëª¨ë“  ìœ ì „ìžë¥¼ ëžœë¤í•œ ê°’ìœ¼ë¡œ ì´ˆê¸°í™”ì‹œí‚µë‹ˆë‹¤.
-
-#### NextGeneration
-
-* í•œ ì„¸ëŒ€ë¥¼ í˜ë¦½ë‹ˆë‹¤.
-* ìˆœì„œëŠ” ì ìˆ˜ ê³„ì‚°, ìµœê³  ìœ ì „ìž ì €ìž¥, êµì°¨, ëŒì—°ë³€ì´, ìµœì í™” ìˆœì„œìž…ë‹ˆë‹¤.
-
-#### PrintBestGene
-
-* í˜„ìž¬ ìµœê³ ì ì„ ì–»ì€ ìœ ì „ìžë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤.
-
-#### BestGeneScore
-
-* í˜„ìž¬ ì‚¬ìš©í•˜ì§€ ì•ŠëŠ” í•¨ìˆ˜ìž…ë‹ˆë‹¤.
-
-#### SaveAllGene
-
-* í˜„ìž¬ í’€ì— ìžˆëŠ” ëª¨ë“  ìœ ì „ìžë¥¼ ì €ìž¥í•©ë‹ˆë‹¤.
-* íŒŒì¼ í¬ë§·ì€ ìœ ì „ìž ê°œìˆ˜ ì¶œë ¥ í›„ ê°œí–‰, ê·¸ ë’¤ ëª¨ë“  ìœ ì „ìžë¥¼ ë‚˜ì—´í•©ë‹ˆë‹¤.
-* output.txtìž…ë‹ˆë‹¤.
-
-#### LoadAllGene
-
-* output.txtì—ì„œ SaveAllGeneê³¼ ê°™ì€ í¬ë§·ìœ¼ë¡œ ì¶œë ¥ëœ ìœ ì „ìžë¥¼ ì½ì–´ ì™€ í˜„ìž¬ í’€ë¡œ ëŒ€ì²´í•©ë‹ˆë‹¤
-* ì˜ˆì™¸ ì²˜ë¦¬ê°€ ë˜ì–´ ìžˆì§€ ì•Šìœ¼ë‹ˆ í¬ê¸°ë¥¼ ë°˜ë“œì‹œ ì¼ì¹˜ì‹œí‚¤ì‹œê¸¸ ë°”ëžë‹ˆë‹¤.
-
-
-
-
-
-
-
-
-
-
-
+| Á¢±ÙÁ¦¾îÀÚ | ÀÌ¸§                                                     | ¼³¸í                                                         |
+| ---------- | -------------------------------------------------------- | ------------------------------------------------------------ |
+| private    | void CalculateScore(void)                                | GeneManager Å¬·¡½ºÀÇ EvaluateMax¸¦ Æò°¡ÇÔ¼ö·Î »ç¿ëÇÏ¿© geneScore º¤ÅÍ¿¡ Á¡¼ö¸¦ Ã¤¿ó´Ï´Ù. |
+| private    | double CalculateFitness(void)                            | CalculateScore ÇÔ¼ö¸¦ ÅëÇØ °è»êµÈ geneScore º¤ÅÍ¸¦ È°¿ëÇØ °¢ À¯ÀüÀÚÀÇ Fitness, Áï ÀûÇÕµµ¸¦ °è»êÇØ geneFitness º¤ÅÍ¿¡ ÀûÇÕµµ¸¦ Ã¤¿ó´Ï´Ù. |
+| private    | int SelectParent(double)                                 | CalculateFitness¸¦ ÇÔ¼ö¸¦ ÅëÇØ °è»êµÈ geneFitness º¤ÅÍ¸¦ È°¿ëÇØ ·ê·¿ ÈÙ ¹æ½ÄÀ¸·Î À¯ÀüÀÚµé Áß ºÎ¸ð°¡ µÉ À¯ÀüÀÚ¸¦ ÇÏ³ª °í¸¨´Ï´Ù. |
+| private    | void IndividualCross(Gene& par1, Gene& par2, Gene& res); | par1°ú par2¸¦ ±³Â÷ÇÑ °á°ú¸¦ res¿¡ ³Ö½À´Ï´Ù.<br />±³Â÷ ¹æ½ÄÀº 1¹øÂ° À¯ÀüÀÚ¿¡¼­ ÀÓÀÇÀÇ Á÷»ç°¢ÇüÀ» ·£´ýÇÏ°Ô Àâ¾Æ ±× ¾ÈÀ» 2¹øÂ° À¯ÀüÀÚ·Î ±³Ã¼ÇÏ´Â ¹æ½ÄÀÔ´Ï´Ù. |
+| private    | void Cross(void)                                         | elite º¯¼öÀÇ °ª ¸¸Å­ ÀÌÁ¦±îÁö ³ª¿Â °Í Áß °¡Àå ÁÁÀº À¯ÀüÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù.<br />±× ÈÄ remain º¯¼öÀÇ °ª ¸¸Å­ ±âÁ¸ÀÇ À¯ÀüÀÚ¸¦ Ãß°¡ÇÕ´Ï´Ù. ±âÁ¸ÀÇ À¯ÀüÀÚ´Â ÇÏ³ª°¡ ¾à 2.5°³ »ðÀÔµË´Ï´Ù.<br />±× ÈÄ ³²Àº À¯ÀüÀÚ´Â IndividualCross¸¦ ÅëÇÑ ±³Â÷¸¦ ÅëÇØ Ãß°¡µË´Ï´Ù. |
+| private    | void Mutate(void)                                        | ¸ðµç À¯ÀüÀÚ¿¡ ´ëÇØ geneManager Å¬·¡½ºÀÇ µ¹¿¬º¯ÀÌ¸¦ Àû¿ëÇÕ´Ï´Ù. |
+| private    | void Optimize(void)                                      | ¸ðµç À¯ÀüÀÚ¿¡ ´ëÇØ GeneManager Å¬·¡½ºÀÇ Áö¿ª ÃÖÀûÈ­¸¦ ¼öÇàÇÕ´Ï´Ù. |
+| private    | void SaveBestGene(void)                                  | ÇöÀç °¡Àå Á¡¼ö°¡ ³ôÀº À¯ÀüÀÚ¿Í ±âÁ¸ À¯ÀüÀÚ¸¦ ºñ±³ÇØ¼­ ´õ ³ªÀº °ªÀ» ÀúÀåÇÕ´Ï´Ù. |
+| public     | void NextGeneration(void)                                | ÇÑ ¼¼´ë¸¦ Èê¸³´Ï´Ù.<br />¼ø¼­´Â Á¡¼ö °è»ê, ÃÖ°í À¯ÀüÀÚ ÀúÀå, ±³Â÷, µ¹¿¬º¯ÀÌ, ÃÖÀûÈ­ ¼ø¼­ÀÔ´Ï´Ù. |
+| public     | void PrintBestGene(void)                                 | ÇöÀç ÃÖ°íÁ¡À» ¾òÀº À¯ÀüÀÚ¸¦ Ãâ·ÂÇÕ´Ï´Ù.                      |
+| public     | void SaveAllGene(void)                                   | ÇöÀç Ç®¿¡ ÀÖ´Â ¸ðµç À¯ÀüÀÚ¸¦ output.txt¿¡ ÀúÀåÇÕ´Ï´Ù. <br />ÆÄÀÏ Æ÷¸ËÀº À¯ÀüÀÚ °³¼ö Ãâ·Â ÈÄ °³Çà, ±× µÚ ¸ðµç À¯ÀüÀÚ¸¦ ³ª¿­ÇÕ´Ï´Ù. |
+| public     | void LoadAllGene(void)                                   | output.txt¿¡¼­ SaveAllGene°ú °°Àº Æ÷¸ËÀ¸·Î Ãâ·ÂµÈ À¯ÀüÀÚ¸¦ ÀÐ¾î ¿Í ÇöÀç Ç®·Î ´ëÃ¼ÇÕ´Ï´Ù.<br />¿¹¿Ü Ã³¸®°¡ µÇ¾î ÀÖÁö ¾ÊÀ¸´Ï Å©±â¸¦ ¹Ýµå½Ã ÀÏÄ¡½ÃÅ°½Ã±æ ¹Ù¶ø´Ï´Ù. |

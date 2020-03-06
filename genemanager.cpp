@@ -7,11 +7,11 @@ typedef tuple<int, int, int, int> tp;
 
 
 int GeneManager::EvaluateMax(Gene &hGene) {
-	return eval(hGene);
+	return eval.EvalScore(hGene);
 }
 
-int GeneManager::EvaluateIgnoreOne(Gene&){
-	// here!
+double GeneManager::EvaluateIgnoreOne(Gene &hGene) {
+	return eval.EvalIgnoreOne(hGene);
 }
 
 void GeneManager::ProbMutate(Gene &hGene, double prob, RandomManager &rm) {
@@ -23,14 +23,11 @@ void GeneManager::ProbMutate(Gene &hGene, double prob, RandomManager &rm) {
 	}
 }
 
-#include <iostream>
-
 void GeneManager::Optimizer(Gene& g, int max_iter) {
 	int flag = 1;
 	for (int iter = 0; iter < max_iter && flag; iter++) {
 		flag = 0;
 		int now = EvaluateMax(g);
-		//cout << now << endl;
 		int tmp = now + 1;
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 14; j++) {
@@ -59,38 +56,4 @@ void GeneManager::Shuffle(Gene &g) {
 		g.ModifyGene(a.x, a.y, aa);
 		g.ModifyGene(b.x, b.y, bb);
 	}
-}
-
-bool GeneManager::_eval(const int v[8][14], int i, int j, int now) {
-	if (!now) return 1;
-	for (int k = 0; k<8; k++) {
-		int ii = i + dx[k];
-		int jj = j + dy[k];
-		if (ii < 0 || jj < 0 || ii >= 8 || jj >= 14) continue;
-		if (v[ii][jj] == now % 10) {
-			if (_eval(v, ii, jj, now / 10)) return 1;
-		}
-	}
-	return 0;
-}
-
-bool GeneManager::_eval(const int v[8][14], int now) {
-	for (int i = 0; i<8; i++) for (int j = 0; j<14; j++) {
-		if (v[i][j] == now % 10) {
-			if (_eval(v, i, j, now / 10)) return 1;
-		}
-	}
-	return 0;
-}
-
-int GeneManager::eval(const int v[8][14]) {
-	for (int t = 1; ; t++) {
-		if (!_eval(v, t)) return t - 1;
-	}
-}
-
-int GeneManager::eval(Gene &g) {
-	int v[8][14];
-	g.GetGene(v);
-	return eval(v);
 }
