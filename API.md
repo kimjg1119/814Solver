@@ -18,12 +18,12 @@
 
 ### Functions
 
-| 접근제어자 | 이름                                | 설명                                                         |
-| ---------- | ----------------------------------- | ------------------------------------------------------------ |
-| pubic      | void GetGene(int[8][14] arr)        | 이차원 배열을 입력으로 받아, 그 배열에 현재 유전자를 넣어줍니다. |
-| public     | int GetGene(int i, int j)           | (i, j)에 위치한 원소를 반환합니다.                           |
-| public     | void InitGene(int[8][14] arr)       | 이차원 배열을 입력으로 받아, 그 배열로 유전자를 초기화합니다. |
-| public     | void odifyGene(int i, int j, int k) | (i, j)에 위치한 원소를 k로 변경합니다. 돌연변이 작업을 수행할 때 주로 사용합니다. |
+| 접근제어자 | 이름                                 | 설명                                                         |
+| ---------- | ------------------------------------ | ------------------------------------------------------------ |
+| pubic      | void GetGene(int[8][14] arr)         | 이차원 배열을 입력으로 받아, 그 배열에 현재 유전자를 넣어줍니다. |
+| public     | int GetGene(int i, int j)            | (i, j)에 위치한 원소를 반환합니다.                           |
+| public     | void InitGene(int[8][14] arr)        | 이차원 배열을 입력으로 받아, 그 배열로 유전자를 초기화합니다. |
+| public     | void ModifyGene(int i, int j, int k) | (i, j)에 위치한 원소를 k로 변경합니다. 돌연변이 작업을 수행할 때 주로 사용합니다. |
 
 
 
@@ -120,8 +120,8 @@
 | ---------- | -------------------------------- | ------------------------------------------------------------ |
 | private    | double fitness_k                 | 룰렛 휠에서의 선택압을 조절합니다. 보다 구체적으로, 모든 유전자에 대해서 각 유전자가 가지는 확률 파이는 가장 좋은 유전자가 가장 나쁜 유전자의 fitness_k배가 됩니다. 나머지 유전자에 대해서는 그 사이에서 얻은 점수에 대해 선형입니다. 증가시킬수록 선택압이 증가합니다. 3~4가 주로 사용됩니다. |
 | private    | double mutate_prob               | 각 원소에 대한 돌연변이 확률입니다. 증가시킬수록 선택압이 감소합니다. 0부터 1 사이입니다. |
-| private    | double gene_mutate_prob          | **@TODO**                                                    |
-| private    | double all_init                  | **@TODO**                                                    |
+| private    | double gene_mutate_prob          | 각 유전자에 대한 돌연변이 확률입니다. 이 확률을 만족시켜야 각 유전자의 각 원소에 대해서 돌연변이가 진행됩니다. 증가시킬수록 선택압이 감소합니다. 0부터 1 사이입니다. |
+| private    | double all_init                  | 유전자에 대한 전체 초기화 확률입니다. 현재까지는 큰 의미가 없으며, 유전적 다양성을 늘려줄 수 있다는 기대 하에 이용하는 변수입니다. 0부터 1 사이입니다. |
 | private    | int elite                        | 수정되거나 제거될 수 있는 변수입니다. 이제까지 등장한 유전자 중 가장 좋은 유전자를 이 변수의 값 만큼 유전자 풀에 추가합니다. 증가할수록 유전적 다양성이 줄어들고 안정성이 늘어납니다. 이 변수의 적절한 활용은 유전적 안정성이 깨지지 않게 하고 점수를 상승시키는 데 큰 기여를 하지만, 동시에 Local Maxima에 빠질 확률 또한 크게 증가시킵니다. |
 | private    | int remain                       | 수정되거나 제거될 수 있는 변수입니다. remain에서 elite를 뺀 수 만큼 부모 개체를 그대로 유지시킵니다. 증가할수록 유전적 다양성이 줄어들고 안정성이 늘어납니다. |
 | private    | int max_iter                     | Optimizer의 수행 횟수를 제한합니다.<br />값이 클수록 지역 최적화를 많이 수행하지만 속도 저하의 위험이 있습니다. |
@@ -129,8 +129,8 @@
 | private    | double fitSum                    | 적합도의 합입니다. SelectParent 함수에서 사용됩니다.         |
 | private    | Gene bestGene                    | 현재까지 등장한 것 중 가장 나은 유전자입니다.                |
 | private    | vector&lt;Gene&gt; geneArr       | 유전자들을 담고 있는 벡터입니다.                             |
-| private    | vector&lt;int&gt; geneScore      | 유전자들에 대한 평가 함수 점수를 담는 벡터입니다.            |
-| private    | vector&lt;int&gt; geneFitScore   | **@TODO**                                                    |
+| private    | vector&lt;int&gt; geneScore      | 유전자들에 대한 점수를 담는 벡터입니다. 이는 문제에서 요구하는 값과 정확히 일치합니다. |
+| private    | vector&lt;int&gt; geneFitScore   | 유전자들에 대한 평가 함수 점수를 담는 벡터입니다. 이는 문제에서 요구하는 값이 아니며, 적합도를 계산하는 데 활용됩니다. |
 | private    | vector&lt;double&gt; geneFitness | 유전자들에 대한 적합도를 담는 벡터입니다. 적합도는 실수로 표현되며, 룰렛 휠 방식을 따릅니다. |
 | private    | GeneManager gm                   | GeneManager 클래스 객체입니다.                               |
 | private    | RandomManager rm                 | RandomManger 클래스 객체입니다.                              |
@@ -150,7 +150,7 @@
 | private    | int SelectParent(double)                                 | CalculateFitness를 함수를 통해 계산된 geneFitness 벡터를 활용해 룰렛 휠 방식으로 유전자들 중 부모가 될 유전자를 하나 고릅니다. |
 | private    | void IndividualCross(Gene& par1, Gene& par2, Gene& res); | par1과 par2를 교차한 결과를 res에 넣습니다.<br />교차 방식은 1번째 유전자에서 임의의 직사각형을 랜덤하게 잡아 그 안을 2번째 유전자로 교체하는 방식입니다. |
 | private    | void Cross(void)                                         | elite 변수의 값 만큼 이제까지 나온 것 중 가장 좋은 유전자를 추가합니다.<br />그 후 remain 변수의 값 만큼 기존의 유전자를 추가합니다. 기존의 유전자는 하나가 약 2.5개 삽입됩니다.<br />그 후 남은 유전자는 IndividualCross를 통한 교차를 통해 추가됩니다. |
-| private    | void Mutate(void)                                        | 모든 유전자에 대해 geneManager 클래스의 돌연변이를 적용합니다. |
+| private    | void Mutate(void)                                        | 모든 유전자에 대해 ㅎeneManager 클래스의 돌연변이를 적용합니다. |
 | private    | void Optimize(void)                                      | 모든 유전자에 대해 GeneManager 클래스의 지역 최적화를 수행합니다. |
 | private    | void SaveBestGene(void)                                  | 현재 가장 점수가 높은 유전자와 기존 유전자를 비교해서 더 나은 값을 저장합니다. |
 | public     | void NextGeneration(void)                                | 한 세대를 흘립니다.<br />순서는 점수 계산, 최고 유전자 저장, 교차, 돌연변이, 최적화 순서입니다. |
