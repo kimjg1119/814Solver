@@ -1,4 +1,5 @@
 #include "gene.h"
+#include <cstring>
 
 Gene::Gene() {}
 
@@ -27,3 +28,8 @@ void Gene::InitGene(int hGene[8][14]) {
 void Gene::ModifyGene(int px, int py, int val) {
 	gene[px][py] = val;
 }
+
+void Gene::ClearChk() { memset(chk, 0, sizeof chk); }
+void Gene::ClearChk(int i, int j) { chk[i][j] = 0; }
+void Gene::SetChk(int i, int j) { chk[i][j] = 1; }
+int Gene::GetChk(int i, int j) { return chk[i][j]; }

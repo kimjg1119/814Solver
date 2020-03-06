@@ -42,7 +42,6 @@ public:
 	int BestGeneScore();
 	void SaveAllGene();
 	void LoadAllGene();
-
 	double returnAverageScore();
 	vector<int> top10Score();
 };
