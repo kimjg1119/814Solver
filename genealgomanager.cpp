@@ -1,7 +1,7 @@
 #include "genealgomanager.h"
 
 GeneAlgoManager::GeneAlgoManager(int _n, int seed)
-	: n(_n), geneScore(_n), geneFitness(_n), fitSum(0), rm(seed), gm(seed) {
+	: n(_n), geneScore(_n), geneFitScore(_n), geneFitness(_n), fitSum(0), rm(seed), gm(seed) {
 	for (int i = 0; i < _n; i++) {
 		Gene tempGene(rm);
 		geneArr.push_back(tempGene);
@@ -11,15 +11,16 @@ GeneAlgoManager::GeneAlgoManager(int _n, int seed)
 void GeneAlgoManager::CalculateScore() {
 	for (int i = 0; i < n; i++) {
 		geneScore[i] = gm.EvaluateMax(geneArr[i]);
+		geneFitScore[i] = gm.EvaluateIgnoreOne(geneArr[i]);
 	}
 }
 
 double GeneAlgoManager::CalculateFitness() {
 	double fitSum = 0;
-	double maxScore = *max_element(geneScore.begin(), geneScore.end());
-	double minScore = *min_element(geneScore.begin(), geneScore.end());
+	double maxScore = *max_element(geneFitScore.begin(), geneFitScore.end());
+	double minScore = *min_element(geneFitScore.begin(), geneFitScore.end());
 	for (int i = 0; i < n; i++) {
-		geneFitness[i] = (geneScore[i] - minScore) + (maxScore - minScore) / (fitness_k - 1);
+		geneFitness[i] = (geneFitScore[i] - minScore) + (maxScore - minScore) / (fitness_k - 1);
 		fitSum += geneFitness[i];
 	}
 	return fitSum;
@@ -70,7 +71,7 @@ void GeneAlgoManager::Cross() { //need optimization
 	typedef pair<int, int> pii;
 	priority_queue<pii, vector<pii>, greater<pii>> pq;
 	for (int i = 0; i < n; i++) {
-		pq.emplace(geneScore[i], i);
+		pq.emplace(geneFitScore[i], i);
 		while (pq.size() > elite) pq.pop();
 	}
 	for (int i = 0; i < elite; i++) {

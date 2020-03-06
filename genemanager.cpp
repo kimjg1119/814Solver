@@ -5,40 +5,13 @@
 using namespace std;
 typedef tuple<int, int, int, int> tp;
 
-vector<int> GeneManager::BasicEvaluate(Gene &hGene) {
-	int hArr[8][14];
-	hGene.GetGene(hArr);
-	vector<int> chk(10000);
-
-	for (int i = 0; i < 8; i++) {
-		for (int j = 0; j < 14; j++) {
-			queue<tp> Q;
-			Q.emplace(i, j, hArr[i][j], 1);
-			chk[hArr[i][j]] = 1;
-
-			while (!Q.empty()) {
-				int hx, hy, val, idx;
-				tie(hx, hy, val, idx) = Q.front(); Q.pop();
-
-				for (int k = 0; k < 8; k++) {
-					int nx = hx + dx[k], ny = hy + dy[k];
-					if (nx < 0 || nx >= 8 || ny < 0 || ny >= 14) continue;
-
-					int nval = val * 10 + hArr[nx][ny];
-					chk[nval] = 1;
-
-					if (idx == 3) continue;
-					Q.emplace(nx, ny, val * 10 + hArr[nx][ny], idx + 1);
-				}
-			}
-		}
-	}
-
-	return chk;
-}
 
 int GeneManager::EvaluateMax(Gene &hGene) {
 	return eval(hGene);
+}
+
+int GeneManager::EvaluateIgnoreOne(Gene&){
+	// here!
 }
 
 void GeneManager::ProbMutate(Gene &hGene, double prob, RandomManager &rm) {
@@ -118,6 +91,6 @@ int GeneManager::eval(const int v[8][14]) {
 
 int GeneManager::eval(Gene &g) {
 	int v[8][14];
-	for (int i = 0; i < 8; i++) for (int j = 0; j < 14; j++) v[i][j] = g.GetGene(i, j);
+	g.GetGene(v);
 	return eval(v);
 }
