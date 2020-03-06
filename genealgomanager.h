@@ -13,8 +13,8 @@ private:
 	const double mutate_prob = 0.01;
 	const double gene_mutate_prob = 0.2;
 	const double all_init = 0.07;
-	const int elite = 10;
-	const int max_iter = 10000;
+	const int elite = 5;
+	const int max_iter = 15;
 
 	int n;
 	double fitSum;
@@ -40,8 +40,8 @@ public:
 	void NextGeneration();
 	void PrintBestGene();
 	int BestGeneScore();
-	void SaveAllGene();
-	void LoadAllGene();
+	void SaveAllGene(ofstream&);
+	void LoadAllGene(ifstream&);
 
 	double returnAverageScore();
 	vector<int> top10Score();
