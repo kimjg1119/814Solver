@@ -28,11 +28,11 @@ double GeneAlgoManager::CalculateFitness() {
 
 int GeneAlgoManager::SelectParent(double fitSum) {
 	double pt = rm.RandomDouble(fitSum);
-	double sum = 0;
+	double timeSum = 0;
 	int sel = -1;
 	for (int i = 0; i < n; i++) {
-		sum += geneFitness[i];
-		if (pt <= sum) {
+		timeSum += geneFitness[i];
+		if (pt <= timeSum) {
 			sel = i;
 			break;
 		}
@@ -114,7 +114,6 @@ void GeneAlgoManager::Optimize() {
 	}
 		
 }
-
 void GeneAlgoManager::SaveBestGene() {
 	int ma = -1, mai = -1;
 	for (int i = 0; i < n; i++) {
@@ -147,10 +146,7 @@ void GeneAlgoManager::PrintBestGene() {
 	}
 }
 
-void GeneAlgoManager::SaveAllGene() {
-	ofstream out("output.txt");
-
-	out << n << endl;
+void GeneAlgoManager::SaveAllGene(ofstream& out) {
 	int hGene[8][14];
 	for (int t = 0; t < n; t++) {
 		geneArr[t].GetGene(hGene);
@@ -162,11 +158,9 @@ void GeneAlgoManager::SaveAllGene() {
 	}
 }
 
-void GeneAlgoManager::LoadAllGene() {
-	ifstream in("output.txt");
-	int t; in >> t;
+void GeneAlgoManager::LoadAllGene(ifstream& in) {
 	int hGene[8][14];
-	for (int i = 0; i < t; i++) {
+	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < 8; j++) {
 			string s; in >> s;
 			for (int k = 0; k < 14; k++)
@@ -176,16 +170,17 @@ void GeneAlgoManager::LoadAllGene() {
 	}
 }
 
+
 int GeneAlgoManager::BestGeneScore() {
 	return gm.EvaluateMax(bestGene);
 }
 
 double GeneAlgoManager::returnAverageScore() {
-	double sum = 0;
+	double timeSum = 0;
 	for (int i = 0; i < n; i++) {
-		sum += geneScore[i];
+		timeSum += geneScore[i];
 	}
-	return sum / n;
+	return timeSum / n;
 }
 
 vector<int> GeneAlgoManager::top10Score() {
