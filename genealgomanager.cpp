@@ -108,12 +108,12 @@ void GeneAlgoManager::Mutate() {
 
 void GeneAlgoManager::Optimize() {
 	for (int i = 0; i < n; i++) {
-		gm.Optimizer(geneArr[i], max_iter);
+		if (i % 30 == 29) gm.Optimizer(geneArr[i], max_iter, 1);
+		else gm.Optimizer(geneArr[i], max_iter, 0);
 		//cout << i << " ";
 	}
 		
 }
-
 void GeneAlgoManager::SaveBestGene() {
 	int ma = -1, mai = -1;
 	for (int i = 0; i < n; i++) {
@@ -183,7 +183,7 @@ double GeneAlgoManager::returnAverageScore(){
 	return timeSum / n;
 }
 
-vector<int> GeneAlgoManager::top10Score(){
+vector<int> GeneAlgoManager::top10Score() {
 	vector<int> compareVec = geneScore;
 	sort(compareVec.begin(), compareVec.end(), greater<int>());
 	vector<int> returnVec(10);

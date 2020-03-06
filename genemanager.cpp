@@ -7,6 +7,7 @@ typedef tuple<int, int, int, int> tp;
 
 
 int GeneManager::EvaluateMax(Gene &hGene) {
+	hGene.ClearChk();
 	return eval.EvalScore(hGene);
 }
 
@@ -23,25 +24,44 @@ void GeneManager::ProbMutate(Gene &hGene, double prob, RandomManager &rm) {
 	}
 }
 
-void GeneManager::Optimizer(Gene& g, int max_iter) {
+void GeneManager::Optimizer(Gene& g, int max_iter, int type) {
 	int flag = 1;
 	for (int iter = 0; iter < max_iter && flag; iter++) {
-		flag = 0;
-		int now = EvaluateMax(g);
-		int tmp = now + 1;
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 14; j++) {
+		if (type == 1) {
+			flag = 0;
+			int now = EvaluateMax(g);
+			int tmp = now + 1;
+			for (int i = 0; i < 8; i++) {
+				for (int j = 0; j < 14; j++) {
+					tmp = now + 1;
+					while (tmp) {
+						int prv = g.GetGene(i, j);
+						g.ModifyGene(i, j, tmp % 10); tmp /= 10;
+						int nxt = EvaluateMax(g);
+						if (now >= nxt) g.ModifyGene(i, j, prv);
+						else now = nxt, flag = 1;
+					}
+					if (flag) break;
+				}
+				if (flag) break;
+			}
+		}
+		else {
+			flag = 0;
+			int now = EvaluateMax(g);
+			int tmp = now + 1;
+			for (int i = 0; i < 8; i++) for (int j = 0; j<14; j++) {
+				if (flag) break;
+				if (g.GetChk(i, j)) continue;
 				tmp = now + 1;
 				while (tmp) {
 					int prv = g.GetGene(i, j);
 					g.ModifyGene(i, j, tmp % 10); tmp /= 10;
-					int nxt = EvaluateMax(g);
-					if (now >= nxt) g.ModifyGene(i, j, prv);
-					else now = nxt, flag = 1;
+					if (eval.HasNum(g, now + 1, 0)) {
+						flag = 1; break;
+					}
 				}
-				if (flag) break;
 			}
-			if (flag) break;
 		}
 	}
 }

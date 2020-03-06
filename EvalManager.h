@@ -8,12 +8,12 @@ private:
 	const int dx[8] = { 1,0,-1,0,1,1,-1,-1 };
 	const int dy[8] = { 0,1,0,-1,1,-1,1,-1 };
 	const int ignore_limit = 5000;
-	bool BackTracking(const int v[8][14], int i, int j, int now);
-	bool HasNum(const int v[8][14], int now);
-	int GetScore(const int v[8][14]);
-	double GetScoreIgnoreOne(const int v[8][14]);
+	bool BackTracking(Gene& g, int i, int j, int now, int flag);
+	int GetScore(Gene&);
+	double GetScoreIgnoreOne(Gene&);
 
 public:
+	bool HasNum(Gene& g, int now, int flag);
 	double EvalIgnoreOne(Gene&);
 	int EvalScore(Gene&);
 };
